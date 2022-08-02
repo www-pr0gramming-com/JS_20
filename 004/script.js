@@ -12,7 +12,7 @@ function tellMe(joke) {
     // VoiceRSS Speech Function
     VoiceRSS.speech({
         // http://www.voicerss.org/api/
-        key: "<API key>",
+        key: "40045502e79b448fb44fd6a78d7a7b5e",
         src: jokeString,
         hl: "en-us",
         // v: "Linda",
