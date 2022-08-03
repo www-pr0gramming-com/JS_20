@@ -35,11 +35,13 @@ function createDOMNodes(page) {
     // Card Container
     const card = document.createElement("div");
     card.classList.add("card");
+
     // Link
     const link = document.createElement("a");
     link.href = result.hdurl;
     link.title = "View Full Image";
     link.target = "_blank";
+
     // Image
     const image = document.createElement("img");
     image.src = result.url;
@@ -50,10 +52,12 @@ function createDOMNodes(page) {
     // Card Body
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
+
     // Card Title
     const cardTitle = document.createElement("h5");
     cardTitle.classList.add("card-title");
     cardTitle.textContent = result.title;
+
     // Save Text
     const saveText = document.createElement("p");
     saveText.classList.add("clickable");
