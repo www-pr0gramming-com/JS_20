@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Generator</title>
+    <link rel="icon" type="image/png" href="../images/icon2.png" />
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Script -->
+    <script defer src="script.js"></script>
+    <!-- Load quotes from local -->
+    <!-- <script defer src="quotes.js"></script>
+    <script defer src="script-local.js"></script> -->
+</head>
+
+<body>
+    <div class="quote-container" id="quote-container">
+        <!-- Quote -->
+        <div class="quote-text">
+            <i class="fas fa-quote-left"></i>
+            <span id="quote"></span>
+        </div>
+        <!-- Author -->
+        <div class="quote-author">
+            <span class="author" id="author"></span>
+        </div>
+        <!-- Button -->
+        <div class="button-container">
+            <button class="twitter-button" id="twitter" title="Tweet This!">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button id="new-quote">New Quote</button>
+        </div>
+    </div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader"></div>
+</body>
+
+</html>
