@@ -116,7 +116,7 @@ function updateItem(column, index) {
   const selectedColumnEl = listColumns[column].children;
   if (!dragging) {
     if (!selectedColumnEl[index].textContent) {
-      selectedArray.splice(index, 1);
+      selectedArray.splice(index, 1); // https://www.w3schools.com/jsref/jsref_splice.asp
     } else {
       selectedArray[index] = selectedColumnEl[index].textContent;
     }
