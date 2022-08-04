@@ -76,14 +76,17 @@ function createDOMNodes(page) {
     // Footer Container
     const footer = document.createElement("small");
     footer.classList.add("text-muted");
+
     // Date
     const date = document.createElement("strong");
     date.textContent = result.date;
+
     // Copyright
     const copyrightResult =
       result.copyright === undefined ? "" : result.copyright;
     const copyright = document.createElement("span");
     copyright.textContent = ` ${copyrightResult}`;
+
     // Append
     footer.append(date, copyright);
     cardBody.append(cardTitle, saveText, cardText, footer);
