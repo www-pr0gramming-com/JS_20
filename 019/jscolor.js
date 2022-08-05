@@ -67,9 +67,9 @@ if (!window.jscolor) {
               } catch (eParseError) {
                 jsc.warn(
                   "Error parsing jscolor options: " +
-                    eParseError +
-                    ":\n" +
-                    optsStr
+                  eParseError +
+                  ":\n" +
+                  optsStr
                 );
               }
             }
@@ -281,14 +281,14 @@ if (!window.jscolor) {
         for (var i = 0; i < classList.length; i += 1) {
           var repl = new RegExp(
             "^\\s*" +
-              classList[i] +
-              "\\s*|" +
-              "\\s*" +
-              classList[i] +
-              "\\s*$|" +
-              "\\s+" +
-              classList[i] +
-              "(\\s+)",
+            classList[i] +
+            "\\s*|" +
+            "\\s*" +
+            classList[i] +
+            "\\s*$|" +
+            "\\s+" +
+            classList[i] +
+            "(\\s+)",
             "g"
           );
           elm.className = elm.className.replace(repl, "$1");
@@ -490,8 +490,8 @@ if (!window.jscolor) {
                   ? tp[b] + ts[b] - l - l * c
                   : tp[b] + ts[b] - l + l * c
                 : tp[b] + ts[b] - l + l * c >= 0
-                ? tp[b] + ts[b] - l + l * c
-                : tp[b] + ts[b] - l - l * c,
+                  ? tp[b] + ts[b] - l + l * c
+                  : tp[b] + ts[b] - l - l * c,
             ];
           }
 
@@ -517,12 +517,12 @@ if (!window.jscolor) {
           jsc.picker.boxS,
           thisObj.shadow
             ? new jsc.BoxShadow(
-                0,
-                vShadow,
-                thisObj.shadowBlur,
-                0,
-                thisObj.shadowColor
-              )
+              0,
+              vShadow,
+              thisObj.shadowBlur,
+              0,
+              thisObj.shadowColor
+            )
             : null
         );
       },
@@ -531,19 +531,19 @@ if (!window.jscolor) {
         var displaySlider = !!jsc.getSliderComponent(thisObj);
         var dims = [
           2 * thisObj.insetWidth +
-            2 * thisObj.padding +
-            thisObj.width +
-            (displaySlider
-              ? 2 * thisObj.insetWidth +
-                jsc.getPadToSliderPadding(thisObj) +
-                thisObj.sliderSize
-              : 0),
+          2 * thisObj.padding +
+          thisObj.width +
+          (displaySlider
+            ? 2 * thisObj.insetWidth +
+            jsc.getPadToSliderPadding(thisObj) +
+            thisObj.sliderSize
+            : 0),
           2 * thisObj.insetWidth +
-            2 * thisObj.padding +
-            thisObj.height +
-            (thisObj.closable
-              ? 2 * thisObj.insetWidth + thisObj.padding + thisObj.buttonHeight
-              : 0),
+          2 * thisObj.padding +
+          thisObj.height +
+          (thisObj.closable
+            ? 2 * thisObj.insetWidth + thisObj.padding + thisObj.buttonHeight
+            : 0),
         ];
         return dims;
       },
@@ -1248,11 +1248,11 @@ if (!window.jscolor) {
                 this.styleElement.setAttribute(
                   "style",
                   "background: " +
-                    bgColor +
-                    " !important; " +
-                    "color: " +
-                    fgColor +
-                    " !important;"
+                  bgColor +
+                  " !important; " +
+                  "color: " +
+                  fgColor +
+                  " !important;"
                 );
               }
             }
@@ -1479,8 +1479,8 @@ if (!window.jscolor) {
             r === n
               ? 3 + (b - g) / m
               : g === n
-              ? 5 + (r - b) / m
-              : 1 + (g - r) / m;
+                ? 5 + (r - b) / m
+                : 1 + (g - r) / m;
           return [60 * (h === 6 ? 0 : h), 100 * (m / v), 100 * v];
         }
 
@@ -1756,12 +1756,12 @@ if (!window.jscolor) {
               insetColors.length < 2
                 ? insetColors[0]
                 : insetColors[1] +
-                  " " +
-                  insetColors[0] +
-                  " " +
-                  insetColors[0] +
-                  " " +
-                  insetColors[1];
+                " " +
+                insetColors[0] +
+                " " +
+                insetColors[0] +
+                " " +
+                insetColors[1];
             p.btn.style.borderColor = outsetColor;
           }
           p.btn.style.display = THIS.closable ? "block" : "none";
@@ -1966,28 +1966,28 @@ if (!window.jscolor) {
         }
 
         /*
-		var elm = this.targetElement;
-		do {
-			// If the target element or one of its offsetParents has fixed position,
-			// then use fixed positioning instead
-			//
-			// Note: In Firefox, getComputedStyle returns null in a hidden iframe,
-			// that's why we need to check if the returned style object is non-empty
-			var currStyle = jsc.getStyle(elm);
-			if (currStyle && currStyle.position.toLowerCase() === 'fixed') {
-				this.fixed = true;
-			}
+    var elm = this.targetElement;
+    do {
+      // If the target element or one of its offsetParents has fixed position,
+      // then use fixed positioning instead
+      //
+      // Note: In Firefox, getComputedStyle returns null in a hidden iframe,
+      // that's why we need to check if the returned style object is non-empty
+      var currStyle = jsc.getStyle(elm);
+      if (currStyle && currStyle.position.toLowerCase() === 'fixed') {
+        this.fixed = true;
+      }
 
-			if (elm !== this.targetElement) {
-				// attach onParentScroll so that we can recompute the picker position
-				// when one of the offsetParents is scrolled
-				if (!elm._jscEventsAttached) {
-					jsc.attachEvent(elm, 'scroll', jsc.onParentScroll);
-					elm._jscEventsAttached = true;
-				}
-			}
-		} while ((elm = elm.offsetParent) && !jsc.isElementType(elm, 'body'));
-		*/
+      if (elm !== this.targetElement) {
+        // attach onParentScroll so that we can recompute the picker position
+        // when one of the offsetParents is scrolled
+        if (!elm._jscEventsAttached) {
+          jsc.attachEvent(elm, 'scroll', jsc.onParentScroll);
+          elm._jscEventsAttached = true;
+        }
+      }
+    } while ((elm = elm.offsetParent) && !jsc.isElementType(elm, 'body'));
+    */
 
         // valueElement
         if (this.valueElement) {
