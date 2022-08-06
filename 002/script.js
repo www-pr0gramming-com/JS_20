@@ -13,8 +13,8 @@ function showLoadingSpinner() {
 }
 
 function removeLoadingSpinner() {
-    quoteContainer.hidden = false;
     loader.hidden = true;
+    quoteContainer.hidden = false;
 }
 
 // Show New Quote
