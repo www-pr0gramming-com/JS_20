@@ -11,7 +11,7 @@ let isInitialLoad = true;
 // Unsplash API
 const initialCount = 5;
 const count = 10;
-const apiKey = "N597EBKU4xjYB2S7mHoVMs6iNX9StZzf26lpdem4JjE";
+const apiKey = "Xj4foBA6b_KM6qUgVwfmk4zo7QXA1IiU80YGw_UeduU";
 let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${initialCount}`;
 
 function updateAPIURLWithNewCount(picCount) {
@@ -94,6 +94,10 @@ window.addEventListener("scroll", () => {
     ) {
         ready = false;
         getPhotos();
+        // console.log("window.innerHeight", window.innerHeight)
+        // console.log("window.scrollY", window.scrollY)
+        // console.log("window.innerHeight + window.scrollY", window.innerHeight + window.scrollY)
+        // console.log("document.body.offsetHeight - 1000", document.body.offsetHeight - 1000)
         console.log("load more");
     }
 });
