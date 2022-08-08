@@ -39,6 +39,7 @@ async function getJokes() {
         } else {
             joke = data.joke;
         }
+        console.log(joke)
         // Passing Joke to VoiceRSS API
         tellMe(joke);
         // Disable Button
