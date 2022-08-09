@@ -18,15 +18,11 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-  width: 100vw;
-  height: auto;
-}
-
-video {
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100vw;
+  height: auto;
 }
 
 .video-overlay {
@@ -79,7 +75,7 @@ input {
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 20px;
+  border-radius: 10px;
   background: #fff;
   outline: none;
   font-family: Nunito, sans-serif;
@@ -178,7 +174,6 @@ li span {
   video {
     object-fit: cover;
     object-position: 70%;
-    margin-top: -1px;
   }
 
   .container {

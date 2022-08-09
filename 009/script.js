@@ -13,7 +13,7 @@ const completeBtn = document.getElementById("complete-button");
 
 let countdownTitle = "";
 let countdownDate = "";
-let countdownValue = new Date(); // maintain the data type throughout its life time for readability
+let countdownValue = new Date();
 let countdownActive;
 let savedCountdown;
 
@@ -60,29 +60,25 @@ function updateDOM() {
   }, second);
 }
 
-// Get Melbourne Time
-function getMelbourneTime(date) {
-  const OFFSET = 11 - 24; // offset - 1day
-  return new Date(new Date(date).getTime() + OFFSET * hour);
-}
-
 // Take Values from Form Input
 function updateCountdown(e) {
   e.preventDefault();
   countdownTitle = e.srcElement[0].value;
   countdownDate = e.srcElement[1].value;
+
   savedCountdown = {
     title: countdownTitle,
     date: countdownDate,
   };
   localStorage.setItem("countdown", JSON.stringify(savedCountdown));
+
   // Check for valid date
   if (countdownDate === "") {
     alert("Please select a date for the countdown.");
   } else {
     // Get number version of current Date, updateDOM
-    countdownValue = getMelbourneTime(countdownDate).getTime();
-    // countdownValue = new Date(countdownDate).getTime();
+    countdownValue = new Date(countdownDate).getTime();
+    // console.log(countdownValue)
     updateDOM();
   }
 }
@@ -96,8 +92,8 @@ function reset() {
   // Stop the countdown
   clearInterval(countdownActive);
   // Reset values
-  countdownTitle = "";
-  countdownDate = "";
+  countdownForm.children[1].value = ""
+  countdownForm.children[3].value = ""
   localStorage.removeItem("countdown");
 }
 
@@ -108,7 +104,7 @@ function restorePreviousCountdown() {
     savedCountdown = JSON.parse(localStorage.getItem("countdown"));
     countdownTitle = savedCountdown.title;
     countdownDate = savedCountdown.date;
-    countdownValue = getMelbourneTime(countdownDate).getTime();
+    countdownValue = new Date(countdownDate).getTime();
     updateDOM();
   }
 }
