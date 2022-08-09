@@ -66,6 +66,11 @@ function loadSong(song) {
 // Current Song
 let songIndex = 0;
 
+
+// On Load = Select First Song ///////////////////////////////////////////
+loadSong(songs[songIndex]);
+
+
 // Previous Song
 function prevSong() {
   songIndex -= 1;
@@ -82,13 +87,13 @@ function nextSong() {
   playSong();
 }
 
-// On Load = Select First Song
-loadSong(songs[songIndex]);
-
 // Update Progress Bar & Time
 function updateProgressBar(e) {
+
   if (isPlaying) {
+    // console.log(e)
     const { duration, currentTime } = e.srcElement;
+    // console.log(duration, currentTime)
 
     // Update progress bar width
     const progressPercent = (currentTime / duration) * 100;
@@ -118,9 +123,13 @@ function updateProgressBar(e) {
 
 // Set Progress Bar
 function setProgressBar(e) {
+  // console.log(e)
   const width = this.clientWidth;
+  // console.log("clientWidth", width)
   const clickX = e.offsetX;
+  // console.log("offsetX", clickX)
   const { duration } = music;
+  // console.log("duration", duration)
   music.currentTime = (clickX / width) * duration;
 }
 
