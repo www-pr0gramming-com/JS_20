@@ -32,31 +32,11 @@ let playerScoreNumber = 0;
 let computerScoreNumber = 0;
 let computerChoice = "";
 
-// Reset all 'selected' icons, remove confetti
-function resetSelected() {
-  allGameIcons.forEach((icon) => {
-    icon.classList.remove("selected");
-  });
-  stopConfetti();
-  removeConfetti();
-}
-
-// Reset score & playerChoice/computerChoice
-function resetAll() {
-  playerScoreNumber = 0;
-  computerScoreNumber = 0;
-  playerScoreEl.textContent = playerScoreNumber;
-  computerScoreEl.textContent = computerScoreNumber;
-  playerChoiceEl.textContent = "";
-  computerChoiceEl.textContent = "";
-  resultText.textContent = "";
-  resetSelected();
-}
-window.resetAll = resetAll;
 
 // Random computer choice
 function computerRandomChoice() {
   const computerChoiceNumber = Math.random();
+  // console.log(computerChoiceNumber)
   if (computerChoiceNumber < 0.2) {
     computerChoice = "rock";
   } else if (computerChoiceNumber <= 0.4) {
@@ -105,13 +85,6 @@ function updateScore(playerChoice) {
   } else {
     const choice = choices[playerChoice];
     if (choice.defeats.indexOf(computerChoice) > -1) {
-      // ** Dynamic Import Example **
-      // import("./confetti.js").then((module) => {
-      //   module.startConfetti();
-      //   resultText.textContent = "You Won!";
-      //   playerScoreNumber++;
-      //   playerScoreEl.textContent = playerScoreNumber;
-      // });
       startConfetti();
       resultText.textContent = "You Won!";
       playerScoreNumber++;
@@ -132,8 +105,32 @@ function checkResult(playerChoice) {
   updateScore(playerChoice);
 }
 
+// Reset all 'selected' icons, remove confetti
+function resetSelected() {
+  allGameIcons.forEach((icon) => {
+    icon.classList.remove("selected");
+  });
+  stopConfetti();
+  removeConfetti();
+}
+
+// Reset score & playerChoice/computerChoice
+function resetAll() {
+  playerScoreNumber = 0;
+  computerScoreNumber = 0;
+  playerScoreEl.textContent = playerScoreNumber;
+  computerScoreEl.textContent = computerScoreNumber;
+  playerChoiceEl.textContent = "";
+  computerChoiceEl.textContent = "";
+  resultText.textContent = "";
+  resetSelected();
+}
+window.resetAll = resetAll;
+
+
 // Passing player selection value and styling icons
 function select(playerChoice) {
+  // console.log(playerChoice)
   checkResult(playerChoice);
   // Add 'selected' styling & playerChoice
   switch (playerChoice) {
@@ -161,6 +158,8 @@ function select(playerChoice) {
       break;
   }
 }
+
+
 window.select = select;
 
 // On startup, set initial values
