@@ -10,6 +10,8 @@ let passwordsMatch = false;
 function validateForm() {
   // Using Constraint API
   isValid = form.checkValidity();
+  // console.log(isValid)
+
   // Style main message for an error
   if (!isValid) {
     message.textContent = "Please fill out all fields.";
