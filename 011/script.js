@@ -45,14 +45,19 @@ function displayTime(time) {
 // Update progress bar as video plays 
 function updateProgress() {
   const { duration, currentTime } = video;
+  // console.log(duration)
+  // console.log(currentTime)
+
   const progressPercent = (currentTime / duration) * 100;
   progressBar.style.width = `${progressPercent}%`;
+
   currentTimeEl.textContent = `${displayTime(currentTime)} /`;
   durationEl.textContent = displayTime(duration);
 }
 
 // Click to seek within the video
 function setProgress(e) {
+  // console.log(e)
   const newTime = e.offsetX / progressRange.offsetWidth;
   progressBar.style.width = `${newTime * 100}%`;
   video.currentTime = newTime * video.duration;
@@ -82,6 +87,7 @@ function changeVolume(e) {
   } else if (volume > 0.9) {
     volume = 1;
   }
+
   volumeBar.style.width = `${volume * 100}%`;
   video.volume = volume;
 
@@ -100,18 +106,20 @@ function toggleMute() {
     video.volume = 0;
     volumeBar.style.width = 0;
     volumeIcon.classList.add("fas", "fa-volume-mute");
-    volumeIcon.setAttribute("title", "Unmute");
+    volumeIcon.setAttribute("title", "Mute");
   } else {
     video.volume = lastVolume;
     volumeBar.style.width = `${lastVolume * 100}%`;
     setVolumeIcon(lastVolume);
-    volumeIcon.setAttribute("title", "Mute");
+    volumeIcon.setAttribute("title", "Unmute");
   }
 }
 
 // Change Playback Speed -------------------- //
 
 function changeSpeed() {
+  //   console.log("video.playbackRate", video.playbackRate)
+  //   console.log("speed.value", speed.value)
   video.playbackRate = speed.value;
 }
 
