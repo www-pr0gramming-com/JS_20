@@ -6,7 +6,7 @@ const loader = document.querySelector(".loader");
 
 // NASA API
 const count = 10;
-const apiKey = "DEMO_KEY";
+const apiKey = "KOxsDyn4JfahuWa2f9y1SM5E5r7egQitWhrk2tdH";
 const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${count}`;
 
 let resultsArray = [];
@@ -93,6 +93,7 @@ function createDOMNodes(page) {
     link.appendChild(image);
     card.append(link, cardBody);
     imagesContainer.appendChild(card);
+    // console.log(imagesContainer)
   });
 }
 
