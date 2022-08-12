@@ -36,7 +36,7 @@ let timePlayed = 0;
 let baseTime = 0;
 let penaltyTime = 0;
 let finalTime = 0;
-let finalTimeDisplay = "0.0s";
+let finalTimeDisplay = 0;
 
 // Scroll
 let valueY = 0;
@@ -55,13 +55,14 @@ function getSavedBestScores() {
     bestScoreArray = JSON.parse(localStorage.getItem("bestScores"));
   } else {
     bestScoreArray = [
-      { questions: 10, bestScore: finalTimeDisplay },
-      { questions: 25, bestScore: finalTimeDisplay },
-      { questions: 50, bestScore: finalTimeDisplay },
-      { questions: 99, bestScore: finalTimeDisplay },
+      { questions: 10, bestScore: finalTime },
+      { questions: 25, bestScore: finalTime },
+      { questions: 50, bestScore: finalTime },
+      { questions: 99, bestScore: finalTime },
     ];
     localStorage.setItem("bestScores", JSON.stringify(bestScoreArray));
   }
+  console.log(bestScoreArray)
   bestScoresToDOM();
 }
 
@@ -70,13 +71,14 @@ function updateBestScore() {
   bestScoreArray.forEach((score, index) => {
     // Select correct Best Score to update
     if (parseInt(questionAmount) === score.questions) {
-      const savedBestScore = Number(bestScoreArray[index].bestScore);
+      const savedBestScore = bestScoreArray[index].bestScore;
       // Update if the new final score is less or replacing zero
       if (savedBestScore === 0 || savedBestScore > finalTime) {
-        bestScoreArray[index].bestScore = finalTimeDisplay;
+        bestScoreArray[index].bestScore = finalTime.toFixed(1);
       }
     }
   });
+  console.log(bestScoreArray)
   // Update Splash Page
   bestScoresToDOM();
   // Save to Local Storage
@@ -208,6 +210,7 @@ function createEquations() {
     equationsArray.push(equationObject);
   }
   shuffle(equationsArray);
+  console.log(equationsArray)
 }
 
 // Add Equations to DOM
@@ -246,6 +249,7 @@ function populateGamePage() {
   const bottomSpacer = document.createElement("div");
   bottomSpacer.classList.add("height-500");
   itemContainer.appendChild(bottomSpacer);
+  console.log(itemContainer)
 }
 
 // Displays 3, 2, 1, GO!
