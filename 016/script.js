@@ -57,12 +57,6 @@ function updateSavedColumns() {
   });
 }
 
-// Filter Array to remove empty values
-// function filterArray(array) {
-//   const filteredArray = array.filter((item) => item !== null);
-//   return filteredArray;
-// }
-
 // Create DOM Elements for each list item
 function createItemEl(columnEl, column, item, index) {
   // List Item
@@ -153,6 +147,7 @@ function hideInputBox(column) {
 
 // Allow arrays to reflect Drag and Drop items
 function rebuildArrays() {
+  console.log(backlogList.children)
   backlogListArray = Array.from(backlogList.children).map(
     (item) => item.textContent
   );
@@ -165,6 +160,7 @@ function rebuildArrays() {
   onHoldListArray = Array.from(onHoldList.children).map(
     (item) => item.textContent
   );
+  console.log(backlogListArray)
   updateDOM();
 }
 
@@ -202,3 +198,10 @@ function drop(e) {
 
 // On Load
 updateDOM();
+
+
+// Filter Array to remove empty values
+// function filterArray(array) {
+//   const filteredArray = array.filter((item) => item !== null);
+//   return filteredArray;
+// }
