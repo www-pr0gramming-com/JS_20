@@ -49,7 +49,7 @@ if (isMobile.matches) {
 // Score
 let playerScore = 0;
 let computerScore = 0;
-const winningScore = 7;
+const winningScore = 5;
 let isGameOver = true;
 let isNewGame = true;
 
@@ -233,12 +233,12 @@ function startGame() {
   // 60 frames
   // setInterval(animate, 1000 / 60);
   canvas.addEventListener("mousemove", (e) => {
-    // console.log(e.clientX);
+    console.log(e.clientX);
     playerMoved = true;
     // Compensate for canvas being centered
     paddleBottomX = e.clientX - canvasPosition - paddleDiff;
-    // console.log(canvasPosition);
-    // console.log(paddleBottomX);
+    console.log(canvasPosition);
+    console.log(paddleBottomX);
     if (paddleBottomX < paddleDiff) {
       paddleBottomX = 0;
     }
